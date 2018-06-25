@@ -23,6 +23,7 @@
 #define TEMPERATUREHEADERYPOS 20
 #define TEMPERATUREVALUEXPOS 5
 #define TEMPERATUREVALUEYPOS 90
+#define TEMPERATURETEXT "TEMPERATURE"
 
 #define DIVIDERXPOS 0
 #define DIVIDERYPOS 147
@@ -33,6 +34,7 @@
 #define HUMIDITYHEADERYPOS 170
 #define HUMIDITYVALUEXPOS 5
 #define HUMIDITYVALUEYPOS 240
+#define HUMIDITYTEXT "HUMIDITY %"
 
 GxIO_Class io(SPI, SS, 0, 2);
 GxEPD_Class display(io);
@@ -70,7 +72,7 @@ void fullScreenUpdate(float temperature, float humidity) {
   // Print the temperature header
   display.setCursor(TEMPERATUREHEADERXPOS, TEMPERATUREHEADERYPOS);
   display.setFont(f_small);
-  display.println("TEMPERATURE");
+  display.println(TEMPERATURETEXT);
 
   // Print the temperature value
   display.setFont(f_large);
@@ -84,7 +86,7 @@ void fullScreenUpdate(float temperature, float humidity) {
   // Print the humidity header
   display.setCursor(HUMIDITYHEADERXPOS, HUMIDITYHEADERYPOS);
   display.setFont(f_small);
-  display.println("HUMIDITY %");
+  display.println(HUMIDITYTEXT);
 
   // Print the humidity value
   display.setFont(f_large);
